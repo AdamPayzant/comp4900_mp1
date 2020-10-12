@@ -28,7 +28,7 @@ class Regress:
             a += lr
             sum = 0
             for i in range(0, self.features):
-                sum += data[i] * (labels[i][0] - self.__sigma(data[i]))
+                sum += data[_][i] * (labels[_][0] - self.__sigma(data[_]))
             wk1 = self.w - a * sum
             # TODO: CONDITIONAL FOR THE END CASE
             # w_k+1 - w_k || < e
