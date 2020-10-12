@@ -43,11 +43,15 @@ for x in range(0, kFoldData.k):
     trainingSet, validationSet = kFoldData.splitAtX(kFoldData.k,x,shuffled)
     trainingSetData = trainingSet.iloc[:,:-1]
     trainingSetLabel = trainingSet.iloc[:,-1:]
-    linReg.fit(trainingSetData.to_numpy(),trainingSetLabel.to_numpy(),0.3,len(trainingSetData))
+    linReg.fit(trainingSetData.to_numpy(),trainingSetLabel.to_numpy(),0.1,len(trainingSetData))
     validationSetData = validationSet.iloc[:,:-1]
     validationSetLabel = validationSet.iloc[:,-1:]
     validationSetLabel = validationSetLabel.to_numpy()
     count = 0
     for i in validationSetData.iterrows():
-        kFoldData.accuEval(linReg.predict(i[1].to_numpy()[:,np.newaxis]),validationSetLabel[count][0])
+        trainingArr = []
+        for j in range(0,len(i[1].to_numpy())):
+            trainingArr.append(i[1].to_numpy()[j])
+        kFoldData.accuEval(linReg.predict(trainingArr),validationSetLabel[count][0])
         count += 1
+    print(accuracyEval)
