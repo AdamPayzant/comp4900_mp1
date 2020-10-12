@@ -9,12 +9,12 @@ class Regress:
         self.w = np.zeros((1, features))
         self.features = features
         
-    def fit(self, data, labels, lr):
+    def fit(self, data, labels, lr, iterations=100):
         a = -lr
         wk1 = np.zeros((1, self.features))
         # TODO: FIX THE RANGE
         # OTherwise I think this is right?
-        for _ in range(0,100):
+        for _ in range(0,iterations):
             a += lr
             sum = 0
             for i in range(0, self.features):
