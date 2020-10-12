@@ -4,6 +4,11 @@ import os
 import copy
 import regress
 
+accuracyEval = {
+    "accurate": 0,
+    "inaccurate": 0
+}
+
 class KFold:
     def __init__(self, k=10):
         self.k = k
@@ -20,7 +25,10 @@ class KFold:
         return training, validation
 
     def accuEval(self, prediction, real):
-        print("Evaluating")
+        if prediction == real:
+            accuracyEval["accurate"] = accuracyEval["accurate"] + 1
+        else:
+            accuracyEval["inaccurate"] = accuracyEval["inaccurate"] + 1
 
 def loadCSV(filename):
     path = str(os.path.dirname(os.path.realpath(__file__)))      
@@ -34,8 +42,12 @@ linReg = regress.Regress(len(df.iloc[:,:-1].columns))
 for x in range(0, kFoldData.k):
     trainingSet, validationSet = kFoldData.splitAtX(kFoldData.k,x,shuffled)
     trainingSetData = trainingSet.iloc[:,:-1]
-
     trainingSetLabel = trainingSet.iloc[:,-1:]
-    linReg.fit(trainingSetData.to_numpy(),trainingSetLabel.to_numpy(),0.1,len(trainingSetData))
+    linReg.fit(trainingSetData.to_numpy(),trainingSetLabel.to_numpy(),0.3,len(trainingSetData))
     validationSetData = validationSet.iloc[:,:-1]
     validationSetLabel = validationSet.iloc[:,-1:]
+    validationSetLabel = validationSetLabel.to_numpy()
+    count = 0
+    for i in validationSetData.iterrows():
+        kFoldData.accuEval(linReg.predict(i[1].to_numpy()[:,np.newaxis]),validationSetLabel[count][0])
+        count += 1
