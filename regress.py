@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import sys
+from scipy.special import expit
 
 np.set_printoptions(threshold=sys.maxsize)
 
@@ -13,7 +14,7 @@ class Regress:
         self.features = features
 
     def __sigma(self, x):
-        return 1/(1 + np.exp(-(np.dot(x, self.w.T))))
+        return 1/(1 + expit(-(np.dot(x, self.w.T))))
         
     def fit(self, data, labels, lr, iterations=100):
         # data - The data to train on
@@ -22,13 +23,11 @@ class Regress:
         # iterations - The number of iterations to learn with
         a = -lr
         wk1 = np.zeros((1, self.features))
-        # TODO: FIX THE RANGE
-        # OTherwise I think this is right?
         for _ in range(0,iterations):
             a += lr
             sum = 0
             for i in range(0, self.features):
-                sum += data[_][i] * (labels[_][0] - self.__sigma(data[_]))
+                sum += data[i] * (labels[0] - self.__sigma(data[i]))
             wk1 = self.w - a * sum
             # TODO: CONDITIONAL FOR THE END CASE
             # w_k+1 - w_k || < e
