@@ -5,7 +5,7 @@ import copy
 import regress
 
 class KFold2:
-    def __init__(self, k, reg):
+    def __init__(self, reg, k=10):
         self.k = k
         self.reg = reg
     
@@ -22,7 +22,7 @@ class KFold2:
         self.validatation = validation
         return training, validation
 
-    def accuEval(self, lr, iterations, trainingSet, shuffled):
+    def accuEval(self, lr, iterations, shuffled):
         err = 0
         accurate = 0
         inaccurate = 0
@@ -57,3 +57,25 @@ class KFold2:
 
     def run(self):
         return 0
+
+
+def loadCSV(filename):
+    path = str(os.path.dirname(os.path.realpath(__file__)))      
+    newPath = os.path.join(path, filename)
+    return pd.read_csv(newPath)
+
+
+lrVals = [0.01, 0.04, 0.08, 0.1, 0.2, 0.5, 0.8]
+numIterations = [10, 40, 100, 200, 500, 1000, 5000]
+
+df = loadCSV("bankrupcy.csv")
+linReg = regress.Regress(len(df.iloc[:,:-1].columns))
+kFoldData = KFold2(reg=linReg)
+shuffled = kFoldData.shuffle(df)
+for lr in lrVals:
+    for iterations in numIterations:
+        print("Average Error Rate: " + str(kFoldData.accuEval(lr=lr, iterations=iterations, shuffled=shuffled)))
+        print("LR = " + str(lr) + "\tIterations = " + str(iterations))
+
+bestAccuracyOne = 0
+bestParametersOne = ""
