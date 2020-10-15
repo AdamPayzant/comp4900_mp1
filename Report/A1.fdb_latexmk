@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1602727464 "/home/adam/School/comp4900/comp4900_mp1/Report/A1.tex" "/home/adam/School/comp4900/comp4900_mp1/Report/A1.pdf" "A1" 1602727465
-  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.aux" 1602727465 1330 8503a86bad2c1539b30fbc4d829d71c3 ""
-  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.tex" 1602727464 16397 63eb814b613c508b8c671c3211217866 ""
+["pdflatex"] 1602728834 "/home/adam/School/comp4900/comp4900_mp1/Report/A1.tex" "/home/adam/School/comp4900/comp4900_mp1/Report/A1.pdf" "A1" 1602728836
+  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.aux" 1602728835 1330 8503a86bad2c1539b30fbc4d829d71c3 ""
+  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.tex" 1602728836 16417 3958d505dc1f17619d21f6af4b4ec79b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1591545468 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1591545468 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -82,14 +82,14 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1591545468 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1602475125 4727905 1b81189106e2406a827797a37162c1c0 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1602475114 2514046 6e2f215f2e976ffec6d66728a03109f9 ""
-  "A1.aux" 1602727465 1330 8503a86bad2c1539b30fbc4d829d71c3 "pdflatex"
-  "A1.out" 1602727465 296 73efca6e8a3a72089855c0a0a5304fe9 "pdflatex"
+  "A1.aux" 1602728835 1330 8503a86bad2c1539b30fbc4d829d71c3 "pdflatex"
+  "A1.out" 1602728835 296 73efca6e8a3a72089855c0a0a5304fe9 "pdflatex"
   "A1.sty" 1602707085 11175 84617e2115c31c929aad4472c1ae14d7 ""
-  "A1.tex" 1602727464 16397 63eb814b613c508b8c671c3211217866 ""
+  "A1.tex" 1602728836 16417 3958d505dc1f17619d21f6af4b4ec79b ""
   (generated)
   "A1.pdf"
-  "A1.out"
-  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.pdf"
-  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.log"
-  "A1.aux"
   "A1.log"
+  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.log"
+  "/home/adam/School/comp4900/comp4900_mp1/Report/A1.pdf"
+  "A1.aux"
+  "A1.out"
